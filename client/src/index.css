@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 10% 15%;
+  --foreground: 0 0% 90%;
+  --muted: 210 10% 10%;
+  --muted-foreground: 0 0% 75%;
+  --popover: 210 10% 15%;
+  --popover-foreground: 0 0% 90%;
+  --card: 210 10% 20%;
+  --card-foreground: 0 0% 90%;
+  --border: 210 15% 25%;
+  --input: 210 15% 25%;
+  --primary: 174 100% 38%; /* Teal */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 50 60% 67%; /* Gold */
+  --secondary-foreground: 0 0% 20%;
+  --accent: 174 90% 95%;
+  --accent-foreground: 174 100% 25%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 174 100% 38%;
+  --radius: 0.5rem;
+
+  /* Brand specific colors */
+  --gold: 50 60% 67%;
+  --teal: 174 100% 38%;
+  --dark-teal: 174 100% 28%;
+  --ice-blue: 198 100% 83%;
+  --charcoal: 0 0% 20%;
+  
+  /* Brand gradient */
+  --brand-gradient-start: var(--gold);
+  --brand-gradient-end: var(--teal);
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 174 100% 38%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 50 60% 67%;
+  --secondary-foreground: 0 0% 20%;
+  --accent: 174 90% 15%;
+  --accent-foreground: 174 100% 85%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 174 100% 38%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-opensans antialiased bg-background text-foreground;
+  }
+}
+
+/* Brand gradients */
+.bg-brand-gradient {
+  background: linear-gradient(to right, hsl(var(--brand-gradient-start)), hsl(var(--brand-gradient-end)));
+}
+
+.text-brand-gradient {
+  @apply bg-clip-text text-transparent bg-brand-gradient;
+}
+
+/* Font families */
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-opensans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Frosted glass effect */
+.frosted-glass {
+  @apply backdrop-blur-md bg-white/30;
+}
+
+/* Navigation link effect */
+.nav-link:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, hsl(var(--brand-gradient-start)), hsl(var(--brand-gradient-end)));
+  transition: width 0.3s;
+}
+
+.nav-link:hover:after {
+  width: 100%;
+}
+
+/* Product card hover animations */
+.product-card:hover .product-image {
+  transform: translateY(-8px);
+}
+
+.product-card:hover {
+  box-shadow: 0 15px 30px rgba(0, 194, 168, 0.15);
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in.visible {
+  opacity: 1;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Map container styling */
+.map-container {
+  @apply bg-gray-100 h-[400px] rounded-xl bg-cover;
+  background-image: url("https://pixabay.com/get/gca8db3340ca55433926af7c59a59d8497959e58652992a4fb88be1688e525d4a2321a1f56c8c3474028b786d21859be1ee8641451f6bbe6d75c552c820870b57_1280.jpg");
+}

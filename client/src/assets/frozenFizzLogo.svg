@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="363" height="60" viewBox="0 0 363 60">
+  <defs>
+    <linearGradient id="brand-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dfd176" />
+      <stop offset="100%" stop-color="#00c2a8" />
+    </linearGradient>
+  </defs>
+  <rect width="363" height="60" fill="#1a2030" />
+  <rect x="10" y="10" width="343" height="40" fill="url(#brand-gradient)" />
+</svg>
